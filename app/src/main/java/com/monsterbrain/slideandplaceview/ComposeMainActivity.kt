@@ -49,7 +49,7 @@ fun DragPuzzleScreen() {
         modifier = Modifier.fillMaxSize(),
         horizontalAlignment = Alignment.CenterHorizontally
     ) {
-        // Debug toggle button
+        // Header with title and controls
         Row(
             modifier = Modifier
                 .fillMaxWidth()
@@ -57,14 +57,24 @@ fun DragPuzzleScreen() {
             horizontalArrangement = Arrangement.SpaceBetween,
             verticalAlignment = Alignment.CenterVertically
         ) {
+            // Back button to View version
+            Button(
+                onClick = {
+                    val intent = android.content.Intent(context, MainActivity::class.java)
+                    context.startActivity(intent)
+                }
+            ) {
+                Text("← View Version")
+            }
+            
             Text(
                 text = "Compose Drag Puzzle",
                 style = MaterialTheme.typography.headlineSmall
             )
             
             Row(verticalAlignment = Alignment.CenterVertically) {
-                Text("Debug Mode")
-                Spacer(modifier = Modifier.width(8.dp))
+                Text("Debug")
+                Spacer(modifier = Modifier.width(4.dp))
                 Switch(
                     checked = debugMode,
                     onCheckedChange = { debugMode = it }
@@ -89,8 +99,9 @@ fun DragPuzzleScreen() {
             )
         ) {
             Text(
-                text = "Drag the puzzle pieces to rearrange them. " +
-                        "This is a Jetpack Compose version of the original View-based implementation.",
+                text = "🧩 Drag the puzzle pieces to rearrange them\n" +
+                        "🚀 This is a Jetpack Compose version of the original View-based implementation\n" +
+                        "🔧 Toggle debug mode to see piece boundaries",
                 modifier = Modifier.padding(16.dp),
                 style = MaterialTheme.typography.bodyMedium
             )
