@@ -9,14 +9,22 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.SlideAndPlaceView">
+        
+        <!-- Original View-based implementation -->
         <activity android:name=".MainActivity"
             android:screenOrientation="landscape"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
+        </activity>
+        
+        <!-- New Compose-based implementation -->
+        <activity android:name=".ComposeMainActivity"
+            android:screenOrientation="landscape"
+            android:exported="true"
+            android:theme="@android:style/Theme.NoTitleBar">
         </activity>
     </application>
 
